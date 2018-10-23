@@ -1,12 +1,20 @@
+var sentenceScrambler = function(sentence) {
+  var characterSplit = sentence.split("");
+  for (x=0; x < characterSplit.length; x++) {
+    if (characterSplit[x] == "a" || characterSplit[x] == "e" || characterSplit[x] == "i" || characterSplit[x] == "o" || characterSplit[x] == "u") {
+      characterSplit[x] = "-";
+      }
+    }
+    return characterSplit.join("");
+}
+
 $(document).ready(function() {
   $("button").click(function(){
-    var countToNumber = parseInt($("#countToNumber").val());
-    var countByNumber = parseInt($("#countByNumber").val());
+    var inputSentence = $("#inputSentence").val();
+    var scrambledSentence = sentenceScrambler(inputSentence);
+    $("#output").text("Your coded sentence is: " + scrambledSentence);
 
-    for (i = countByNumber; i <= countToNumber; i = i + countByNumber) {
 
-      $("#output").append("count = " + i + "<br>");
-      }
     });
 
 });
